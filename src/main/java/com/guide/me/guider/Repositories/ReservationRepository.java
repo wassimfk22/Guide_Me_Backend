@@ -42,23 +42,21 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     // Réservations d'un guide par statut
     List<Reservation> findByGuideIdAndStatutOrderByIdDesc(Long guideId, StatutReserv statut);
     
-    // Demandes en attente pour un guide
     @Query("""
-        SELECT r
-        FROM Reservation r
-        WHERE r.guide.id = :guideId
-        AND r.statut = 'EN_ATTENTE'
-        ORDER BY r.id DESC
-    """)
-    List<Reservation> findDemandesEnAttente(Long guideId);
-    
-    // Réservations confirmées pour un guide
-    @Query("""
-        SELECT r
-        FROM Reservation r
-        WHERE r.guide.id = :guideId
-        AND r.statut = 'CONFIRMEE'
-        ORDER BY r.id DESC
-    """)
-    List<Reservation> findReservationsConfirmees(Long guideId);
+            SELECT r
+            FROM Reservation r
+            WHERE r.guide.id = :guideId
+            AND r.statut = 'EN_ATTENTE'
+            ORDER BY r.id DESC
+        """)
+        List<Reservation> findDemandesEnAttente(Long guideId);
+
+        @Query("""
+            SELECT r
+            FROM Reservation r
+            WHERE r.guide.id = :guideId
+            AND r.statut = 'CONFIRMEE'
+            ORDER BY r.id DESC
+        """)
+        List<Reservation> findReservationsConfirmees(Long guideId);
 }
