@@ -145,7 +145,7 @@ class AuthServiceTest {
 
     // ==========================================
     // TESTS POUR REGISTER TOURISTE()
-    // ==========================================
+    // ===========================================
 
     @Test
     void registerTouriste_Succes() {
