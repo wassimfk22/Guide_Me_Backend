@@ -21,5 +21,7 @@ public class DisponibiliteRequest {
 	
 	@NotBlank
     private Guide guide;
+	
+	// Je teste automatiquement
 
 }
